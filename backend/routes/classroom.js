@@ -70,11 +70,6 @@ router.post('/addPost', async (req, res) => {
   }
 });
 
-// await Post.updateOne({ _id }, { $set: { post.title : postTitle,
-//         post.body : postBody,
-//         post.private : postPriv,
-//         post.anonymous : postAnonymous,
-//         post.replies : postReplies } })
 router.put('/editPost', async (req, res) => {
   const {
     classroomId,
@@ -90,12 +85,21 @@ router.put('/editPost', async (req, res) => {
     if (classroom) {
       const post = classroom.posts.id(postId);
       if (post) {
-        post.title = postTitle;
-        post.body = postBody;
-        post.private = postPriv;
-        post.anonymous = postAnonymous;
-        post.replies = postReplies;
-        await classroom.save();
+        // post.title = postTitle;
+        // post.body = postBody;
+        // post.private = postPriv;
+        // post.anonymous = postAnonymous;
+        // post.replies = postReplies;
+        // await classroom.save();
+        await Post.updateOne({ postId }, {
+          $set: {
+            'post.title': postTitle,
+            'post.body': postBody,
+            'post.private': postPriv,
+            'post.anonymous': postAnonymous,
+            'post.replies': postReplies,
+          },
+        });
         res.send('successful post update');
       } else {
         res.send('post does not exist');
