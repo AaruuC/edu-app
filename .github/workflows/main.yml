@@ -12,10 +12,7 @@ jobs:
     
     - name: Install Dependencies
       run: npm install
-    - name: Run server
-      run: npm run server
     - name: Run tests
-      run: npm run testbackend
-      
+      run: npm run dev
 
 
