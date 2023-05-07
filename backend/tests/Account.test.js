@@ -29,7 +29,9 @@ app.use('/account', AccountRouter);
 //   expect(res.statusCode).toEqual(200);
 //   expect(res.text).toEqual('user creation was successful');
 // });
-
+afterAll(async () => {
+  await new Promise(resolve => setTimeout(() => resolve(), 500)); // wait for connections to close
+});
 test('POST /signup should not sign up a user if username already taken', async () => {
   const res = await request(app)
     .post('/account/signup')
