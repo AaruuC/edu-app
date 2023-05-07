@@ -13,6 +13,7 @@ jobs:
     - name: Install Dependencies
       run: npm install
     - name: Run tests
-      run: npm run dev
+      run: |
+        timeout 10s npm run dev
 
 
