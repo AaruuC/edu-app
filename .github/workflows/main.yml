@@ -1,7 +1,10 @@
 name: Node.js CI
 
-on: [push]
-
+on:
+  push:
+    branches:
+      - main
+      
 jobs:
   build:
 
@@ -9,13 +12,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Use Node.js 12.x
-      uses: actions/setup-node@v1
-      with:
-        node-version: 12.x
+    
     - name: Install Dependencies
       run: npm install
     - name: Run server
-      run: npm server
+      run: npm run server
     - name: Run tests
       run: npm run testbackend
+      
+
+
