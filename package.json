@@ -33,7 +33,7 @@
     "eject": "react-scripts eject",
     "server": "node backend/server.js",
     "json-server": "json-server --watch frontend/src/json-server/db.json",
-    "testbackend": "jest backend/test --coverage",
+    "testbackend": "jest backend/test --coverage && node ./backend/closehandles.js",
     "dev": "concurrently \"npm run server\" \"npm run testbackend\""
   },
   "eslintConfig": {
