@@ -1,4 +1,7 @@
-const http = require('http');
 
-console.log('Closing open handles...');
-http.globalAgent.destroy();
+const app = require('./app');
+
+
+app.close(() => {
+  
+});
