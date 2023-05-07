@@ -23,7 +23,7 @@
   },
   "scripts": {
     "start": "react-scripts start ",
-    "build": "parcel watch src/index.html",
+    "build": "react-scripts build",
     "test": "react-scripts test --transformIgnorePatterns \"node_modules/(?!axios)/\" --coverage --watchAll",
     "lint": "eslint \"**/*.{js,jsx}\" --ignore-pattern *.test.js --ignore-pattern *.test.jsx",
     "uitest": "jest --coverage",
