@@ -34,7 +34,9 @@ app.use('/classroom', ClassroomRouter);
 //   expect(res.statusCode).toEqual(200);
 //   expect(res.text).toEqual('successful classroom creation');
 // });
-
+afterAll(async () => {
+  await new Promise(resolve => setTimeout(() => resolve(), 500)); // wait for connections to close
+});
 test('POST /create should not create a new classroom if classroom name already taken', async () => {
   const res = await request(app)
     .post('/classroom/create')
