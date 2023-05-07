@@ -15,5 +15,7 @@ jobs:
         node-version: 12.x
     - name: Install Dependencies
       run: npm install
-    - name: Run Tests
-      run: npm run dev
+    - name: Run server
+      run: npm run server
+    - name: Run tests
+      run: npm run testbackend
